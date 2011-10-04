@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-namespace VirtualTreeView
+namespace MartianGuiControls
 {
 	internal class Set<T>
 	{

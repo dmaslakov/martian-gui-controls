@@ -2,7 +2,7 @@
 
 using System;
 using System.Windows.Forms;
-using VirtualTreeView;
+using MartianGuiControls;
 
 namespace VirtualTreeViewTestApp
 {

@@ -38,7 +38,7 @@
 			this.numLoadDelay = new System.Windows.Forms.NumericUpDown();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.vtv = new VirtualTreeView.VirtualTreeView();
+			this.vtv = new MartianGuiControls.VirtualTreeView();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
@@ -171,7 +171,7 @@
 			this.vtv.Name = "vtv";
 			this.vtv.Size = new System.Drawing.Size(384, 316);
 			this.vtv.TabIndex = 0;
-			this.vtv.CreateRealChildren += new VirtualTreeView.VirtualTreeViewCreateChildrenHandler(this.virtualTreeView1_CreateRealChildren);
+			this.vtv.CreateRealChildren += new MartianGuiControls.VirtualTreeViewCreateChildrenHandler(this.virtualTreeView1_CreateRealChildren);
 			this.vtv.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.virtualTreeView1_BeforeExpand);
 			this.vtv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.virtualTreeView1_AfterSelect);
 			this.vtv.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.virtualTreeView1_NodeMouseClick);
@@ -196,7 +196,7 @@
 
         #endregion
 
-        private VirtualTreeView.VirtualTreeView vtv;
+        private MartianGuiControls.VirtualTreeView vtv;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.CheckBox xbAutoPromote;
 		private System.Windows.Forms.CheckBox xbAutoVirtual;

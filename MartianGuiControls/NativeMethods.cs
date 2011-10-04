@@ -4,7 +4,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Drawing;
 
-namespace VirtualTreeView.Native
+namespace MartianGuiControls.Native
 {
 	// http://msdn.microsoft.com/en-us/library/bb775514.aspx
 	[StructLayout(LayoutKind.Sequential)]

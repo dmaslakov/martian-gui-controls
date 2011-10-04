@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-using VirtualTreeView.Native;
+using MartianGuiControls.Native;
 using System.Diagnostics;
 
-namespace VirtualTreeView
+namespace MartianGuiControls
 {
 	// About Tree-View Controls: http://msdn.microsoft.com/en-us/library/bb760017.aspx
 	[ToolboxItem(true)]

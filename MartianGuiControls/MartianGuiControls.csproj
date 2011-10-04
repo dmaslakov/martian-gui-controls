@@ -8,8 +8,8 @@
     <ProjectGuid>{25B096E2-7264-497B-98CC-666476256C2A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VirtualTreeView</RootNamespace>
-    <AssemblyName>VirtualTreeView</AssemblyName>
+    <RootNamespace>MartianGuiControls</RootNamespace>
+    <AssemblyName>MartianGuiControls</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>

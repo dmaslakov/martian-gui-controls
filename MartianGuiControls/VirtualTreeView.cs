@@ -22,9 +22,9 @@ namespace MartianGuiControls
 		private bool _delayedTimerEnabled = false;
 		private string _delayedLoadingText = _LOADING;
 
-		private Set<IntPtr> _virtualNodes = new Set<IntPtr>();
-		private List<IntPtr> _delayedLoadNodes = new List<IntPtr>(); // parent nodes for loading children
-		private List<IntPtr> _delayedLoadingNodes = new List<IntPtr>(); // temporary nodes "Loading...", will be removed after children loaded
+		private readonly Set<IntPtr> _virtualNodes = new Set<IntPtr>();
+		private readonly List<IntPtr> _delayedLoadNodes = new List<IntPtr>(); // parent nodes for loading children
+		private readonly List<IntPtr> _delayedLoadingNodes = new List<IntPtr>(); // temporary nodes "Loading...", will be removed after children loaded
 
 		public VirtualTreeView()
 		{
@@ -139,7 +139,7 @@ namespace MartianGuiControls
 				return;
 
 			case (int)TVM.TVM_DELETEITEM:
-				Native.NMTREEVIEW tv = (Native.NMTREEVIEW)m.GetLParam(typeof(Native.NMTREEVIEW));
+				NMTREEVIEW tv = (NMTREEVIEW)m.GetLParam(typeof(NMTREEVIEW));
 				_virtualNodes.Remove(tv.itemOld.hItem);
 				break;
 
@@ -253,9 +253,9 @@ namespace MartianGuiControls
 				return; // already not virtual
 
 			// TODO how make it correct?
-			int children = isVirtual ? (int)CallbackTypes.I_CHILDRENCALLBACK : (TreeNode.FromHandle(this, hItem).Nodes.Count > 0 ? 1 : 0);
+			int children = isVirtual ? CallbackTypes.I_CHILDRENCALLBACK : (TreeNode.FromHandle(this, hItem).Nodes.Count > 0 ? 1 : 0);
 			//int children = isVirtual ? (int)CallbackTypes.I_CHILDRENCALLBACK : -2 /*(n.Nodes.Count > 0 ? 1 : 0)*/;
-			if (!NativeFunc.SetTVItemChildren(this.Handle, hItem, children))
+			if (!NativeFunc.SetTVItemChildren(Handle, hItem, children))
 				throw new InvalidOperationException("Can't set TreeView node properties.");
 
 			if (isVirtual)

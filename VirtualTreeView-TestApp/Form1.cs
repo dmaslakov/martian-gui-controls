@@ -24,19 +24,19 @@ namespace VirtualTreeViewTestApp
 			LoadIssueItems();
 		}
 
-		private Dictionary<int, Delegate> _issueHandlers = new Dictionary<int, Delegate>();
+		private readonly Dictionary<int, Delegate> _issueHandlers = new Dictionary<int, Delegate>();
 
 		private delegate void ReproduceIssueHandler();
 
 		private void LoadIssueItems()
 		{
-			MethodInfo[] miList = this.GetType().GetMethods(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
+			MethodInfo[] miList = GetType().GetMethods(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance);
 			foreach (MethodInfo mi in miList)
 			{
 				if (mi.Name.StartsWith("Issue_"))
 				{
 					object[] attrList = mi.GetCustomAttributes(typeof(DescriptionAttribute), true);
-					if (attrList != null && attrList.Length > 0)
+					if (attrList.Length > 0)
 					{
 						foreach (DescriptionAttribute attr in attrList)
 						{
@@ -50,13 +50,8 @@ namespace VirtualTreeViewTestApp
 
 		void virtualTreeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
 		{
-			if (e.Button == System.Windows.Forms.MouseButtons.Right)
+			if (e.Button == MouseButtons.Right)
 				e.Node.Remove();
-		}
-
-		void virtualTreeView1_BeforeExpand(object sender, TreeViewCancelEventArgs e)
-		{
-			//e.Node.Nodes.Add("child");
 		}
 
 		private void virtualTreeView1_CreateRealChildren(object sender, VirtualTreeViewCreateChildrenEventArgs e)
@@ -139,7 +134,7 @@ namespace VirtualTreeViewTestApp
 				return;
 			}
 			_flickerTimer = new Timer();
-			_flickerTimer.Tick += new EventHandler(_flickerTimer_Tick);
+			_flickerTimer.Tick += _flickerTimer_Tick;
 			_flickerTimer.Interval = 100; // 10 times per second
 			_flickerTimer.Tag = 0;
 			_flickerTimer.Start();
@@ -169,7 +164,6 @@ namespace VirtualTreeViewTestApp
 				_flickerTimer = null;
 			}
 		}
-
 
 		#endregion
 	}

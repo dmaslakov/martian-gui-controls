@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.btReproduceIssue = new System.Windows.Forms.Button();
+			this.btClearTree = new System.Windows.Forms.Button();
+			this.cbReproduceIssue = new System.Windows.Forms.ComboBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.numLoadDelay = new System.Windows.Forms.NumericUpDown();
@@ -39,9 +42,6 @@
 			this.xbAutoPromote = new System.Windows.Forms.CheckBox();
 			this.xbAutoVirtual = new System.Windows.Forms.CheckBox();
 			this.vtv = new MartianGuiControls.VirtualTreeView();
-			this.cbReproduceIssue = new System.Windows.Forms.ComboBox();
-			this.btClearTree = new System.Windows.Forms.Button();
-			this.btReproduceIssue = new System.Windows.Forms.Button();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
@@ -78,6 +78,35 @@
 			this.splitContainer1.Size = new System.Drawing.Size(550, 400);
 			this.splitContainer1.SplitterDistance = 162;
 			this.splitContainer1.TabIndex = 1;
+			// 
+			// btReproduceIssue
+			// 
+			this.btReproduceIssue.Location = new System.Drawing.Point(12, 307);
+			this.btReproduceIssue.Name = "btReproduceIssue";
+			this.btReproduceIssue.Size = new System.Drawing.Size(129, 23);
+			this.btReproduceIssue.TabIndex = 12;
+			this.btReproduceIssue.Text = "Reproduce issue:";
+			this.btReproduceIssue.UseVisualStyleBackColor = true;
+			this.btReproduceIssue.Click += new System.EventHandler(this.btReproduceIssue_Click);
+			// 
+			// btClearTree
+			// 
+			this.btClearTree.Location = new System.Drawing.Point(12, 195);
+			this.btClearTree.Name = "btClearTree";
+			this.btClearTree.Size = new System.Drawing.Size(129, 23);
+			this.btClearTree.TabIndex = 11;
+			this.btClearTree.Text = "Clear tree";
+			this.btClearTree.UseVisualStyleBackColor = true;
+			this.btClearTree.Click += new System.EventHandler(this.btClearTree_Click);
+			// 
+			// cbReproduceIssue
+			// 
+			this.cbReproduceIssue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbReproduceIssue.FormattingEnabled = true;
+			this.cbReproduceIssue.Location = new System.Drawing.Point(12, 336);
+			this.cbReproduceIssue.Name = "cbReproduceIssue";
+			this.cbReproduceIssue.Size = new System.Drawing.Size(130, 21);
+			this.cbReproduceIssue.TabIndex = 9;
 			// 
 			// label2
 			// 
@@ -178,38 +207,8 @@
 			this.vtv.Size = new System.Drawing.Size(384, 400);
 			this.vtv.TabIndex = 0;
 			this.vtv.CreateRealChildren += new MartianGuiControls.VirtualTreeViewCreateChildrenHandler(this.virtualTreeView1_CreateRealChildren);
-			this.vtv.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.virtualTreeView1_BeforeExpand);
 			this.vtv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.virtualTreeView1_AfterSelect);
 			this.vtv.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.virtualTreeView1_NodeMouseClick);
-			// 
-			// cbReproduceIssue
-			// 
-			this.cbReproduceIssue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbReproduceIssue.FormattingEnabled = true;
-			this.cbReproduceIssue.Location = new System.Drawing.Point(12, 336);
-			this.cbReproduceIssue.Name = "cbReproduceIssue";
-			this.cbReproduceIssue.Size = new System.Drawing.Size(130, 21);
-			this.cbReproduceIssue.TabIndex = 9;
-			// 
-			// btClearTree
-			// 
-			this.btClearTree.Location = new System.Drawing.Point(12, 195);
-			this.btClearTree.Name = "btClearTree";
-			this.btClearTree.Size = new System.Drawing.Size(129, 23);
-			this.btClearTree.TabIndex = 11;
-			this.btClearTree.Text = "Clear tree";
-			this.btClearTree.UseVisualStyleBackColor = true;
-			this.btClearTree.Click += new System.EventHandler(this.btClearTree_Click);
-			// 
-			// btReproduceIssue
-			// 
-			this.btReproduceIssue.Location = new System.Drawing.Point(12, 307);
-			this.btReproduceIssue.Name = "btReproduceIssue";
-			this.btReproduceIssue.Size = new System.Drawing.Size(129, 23);
-			this.btReproduceIssue.TabIndex = 12;
-			this.btReproduceIssue.Text = "Reproduce issue:";
-			this.btReproduceIssue.UseVisualStyleBackColor = true;
-			this.btReproduceIssue.Click += new System.EventHandler(this.btReproduceIssue_Click);
 			// 
 			// Form1
 			// 

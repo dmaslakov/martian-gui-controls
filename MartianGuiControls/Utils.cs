@@ -6,7 +6,7 @@ namespace MartianGuiControls
 {
 	internal class Set<T>
 	{
-		private Dictionary<T, object> _d = new Dictionary<T, object>(); // TODO change container
+		private readonly Dictionary<T, object> _d = new Dictionary<T, object>(); // TODO change container
 
 		public void Add(T v)
 		{

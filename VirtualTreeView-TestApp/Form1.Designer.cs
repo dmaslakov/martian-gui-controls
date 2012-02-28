@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.components = new System.ComponentModel.Container();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.btReproduceIssue = new System.Windows.Forms.Button();
 			this.btClearTree = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@
 			this.xbAutoPromote = new System.Windows.Forms.CheckBox();
 			this.xbAutoVirtual = new System.Windows.Forms.CheckBox();
 			this.vtv = new MartianGuiControls.VirtualTreeView();
+			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
@@ -202,13 +204,22 @@
 			// vtv
 			// 
 			this.vtv.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.vtv.ImageIndex = 0;
+			this.vtv.ImageList = this.imageList1;
 			this.vtv.Location = new System.Drawing.Point(0, 0);
 			this.vtv.Name = "vtv";
+			this.vtv.SelectedImageIndex = 0;
 			this.vtv.Size = new System.Drawing.Size(384, 400);
 			this.vtv.TabIndex = 0;
 			this.vtv.CreateRealChildren += new MartianGuiControls.VirtualTreeViewCreateChildrenHandler(this.virtualTreeView1_CreateRealChildren);
 			this.vtv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.virtualTreeView1_AfterSelect);
 			this.vtv.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.virtualTreeView1_NodeMouseClick);
+			// 
+			// imageList1
+			// 
+			this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+			this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+			this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
 			// 
 			// Form1
 			// 
@@ -244,6 +255,7 @@
 		private System.Windows.Forms.ComboBox cbReproduceIssue;
 		private System.Windows.Forms.Button btClearTree;
 		private System.Windows.Forms.Button btReproduceIssue;
+		private System.Windows.Forms.ImageList imageList1;
     }
 }
 

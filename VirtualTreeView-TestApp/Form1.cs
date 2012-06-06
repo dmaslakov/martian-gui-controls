@@ -82,6 +82,7 @@ namespace VirtualTreeViewTestApp
 			if (vtv.SelectedNode != null)
 			{
 				vtv.SelectedNode.Nodes.Add("child #" + _nodesCnt.ToString());
+				UpdateNodeStatus();
 				++_nodesCnt;
 			}
 		}
@@ -94,9 +95,17 @@ namespace VirtualTreeViewTestApp
 			}
 		}
 
+		private void UpdateNodeStatus()
+		{
+			if (vtv.SelectedNode == null)
+				tbNodeStatus.Clear();
+			else
+				tbNodeStatus.Text = vtv.IsVirtualNode(vtv.SelectedNode) ? "virtual" : "real";
+		}
+
 		private void virtualTreeView1_AfterSelect(object sender, TreeViewEventArgs e)
 		{
-			tbNodeStatus.Text = vtv.IsVirtualNode(e.Node) ? "virtual" : "real";
+			UpdateNodeStatus();
 		}
 
 		private void numLoadDelay_ValueChanged(object sender, EventArgs e)
@@ -116,6 +125,11 @@ namespace VirtualTreeViewTestApp
 			{
 				_issueHandlers[idx].DynamicInvoke();
 			}
+		}
+
+		private void vtv_AfterExpand(object sender, TreeViewEventArgs e)
+		{
+			UpdateNodeStatus();
 		}
 
 		#region Issues reproduction

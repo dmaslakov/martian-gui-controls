@@ -141,6 +141,14 @@ namespace MartianGuiControls
 			case (int)TVM.TVM_DELETEITEM:
 				NMTREEVIEW tv = (NMTREEVIEW)m.GetLParam(typeof(NMTREEVIEW));
 				_virtualNodes.Remove(tv.itemOld.hItem);
+				// TODO need update parent to avoid [-] for node w/o children
+				/* Why node.Parent == null ?
+				TreeNode node = TreeNode.FromHandle(this, tv.itemOld.hItem);
+				if (node.Parent != null && IsVirtualNode(node.Parent) && node.Parent.Nodes.Count == 0)
+				{
+					node.Parent.Collapse();
+				}
+				*/
 				break;
 
 			case (int)WM.WM_NOTIFY + (int)WM.WM_REFLECTED:
@@ -237,6 +245,7 @@ namespace MartianGuiControls
 			delayedLoadingTimer.Stop();
 		}
 
+		[Description("Sets node virtual/non-virtual. No children will be added automatically.")]
 		public void SetVirtualNode(TreeNode n, bool isVirtual)
 		{
 			Trace.Assert(n.TreeView == this, "Can't manage nodes from other tree.");
@@ -252,9 +261,7 @@ namespace MartianGuiControls
 			if (!isVirtual && !exists)
 				return; // already not virtual
 
-			// TODO how make it correct?
 			int children = isVirtual ? CallbackTypes.I_CHILDRENCALLBACK : (TreeNode.FromHandle(this, hItem).Nodes.Count > 0 ? 1 : 0);
-			//int children = isVirtual ? (int)CallbackTypes.I_CHILDRENCALLBACK : -2 /*(n.Nodes.Count > 0 ? 1 : 0)*/;
 			if (!NativeFunc.SetTVItemChildren(Handle, hItem, children))
 				throw new InvalidOperationException("Can't set TreeView node properties.");
 

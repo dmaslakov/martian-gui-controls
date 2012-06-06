@@ -212,6 +212,7 @@
 			this.vtv.Size = new System.Drawing.Size(384, 400);
 			this.vtv.TabIndex = 0;
 			this.vtv.CreateRealChildren += new MartianGuiControls.VirtualTreeViewCreateChildrenHandler(this.virtualTreeView1_CreateRealChildren);
+			this.vtv.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.vtv_AfterExpand);
 			this.vtv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.virtualTreeView1_AfterSelect);
 			this.vtv.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.virtualTreeView1_NodeMouseClick);
 			// 

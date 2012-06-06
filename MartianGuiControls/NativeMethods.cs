@@ -137,7 +137,7 @@ namespace MartianGuiControls.Native
 			TVITEM item = new TVITEM();
 			item.mask = (int)TVIF.TVIF_CHILDREN;
 			item.hItem = hItem;
-			item.cChildren = (int)CallbackTypes.I_CHILDRENCALLBACK;
+			item.cChildren = children;
 			return NativeFunc.SetTVItem(hWnd, item);
 		}
 

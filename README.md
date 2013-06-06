@@ -10,3 +10,6 @@ Currently the following controls are implemented.
 
 * with immediate and delayed children loading
 * it uses standard ability described at MSDN to show parent tree node like it has children using callbacks (and not creating fake child nodes)
+
+## Download
+Download built files from [martian-gui-controls at Bintray](https://bintray.com/dmaslakov/generic/martian-gui-controls).
